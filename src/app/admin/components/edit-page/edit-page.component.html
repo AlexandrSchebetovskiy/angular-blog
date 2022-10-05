@@ -1,0 +1,30 @@
+
+<app-alert></app-alert>
+<div *ngIf="form; else loader">
+  <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+    <h1>Редактирование  поста</h1>
+
+    <div class="form-control" [ngClass]="{invalid: form.get('title')!.touched && form.get('title')!.invalid}">
+      <label for="title">Заголовок:</label>
+      <input type="text" id="title" formControlName="title">
+
+      <div *ngIf="form.get('title')!.touched && form.get('title')!.invalid" class="validation">
+        <small *ngIf="form.get('title')!.errors!.required">Введите заголовок!</small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label for="quill">
+        <quill-editor id="quill" formControlName="text"></quill-editor>
+      </label>
+    </div>
+
+    <button [disabled]="form.invalid || submitted" type="submit" class="btn-dark btn btn-block">Обновить</button>
+  </form>
+</div>
+
+<ng-template #loader>
+  <p class="text-center">
+    Идет загрузка...
+  </p>
+</ng-template>

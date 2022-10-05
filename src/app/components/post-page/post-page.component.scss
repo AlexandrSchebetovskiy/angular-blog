@@ -1,0 +1,23 @@
+.post{
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  h1{
+    margin-bottom: .5rem;
+    margin-right: 1rem;
+  }
+  strong{
+    margin-right: 1rem;
+  }
+  .content{
+    p{
+      text-indent: 25px;
+    }
+  }
+  button{
+    min-width: 90px;
+  }
+}
+
